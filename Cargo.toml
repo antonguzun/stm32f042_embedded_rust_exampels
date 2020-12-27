@@ -1,0 +1,16 @@
+[package]
+edition = "2018"
+name = "blinky-rust"
+version = "0.1.0"
+
+[profile.release]
+opt-level = 'z' # turn on maximum optimizations. We only have 64kB
+lto = true      # Link-time-optimizations for further size reduction
+
+[dependencies]
+nb = "1.0"
+cortex-m = "0.6.0"
+cortex-m-rt = "0.6.8"
+stm32f0xx-hal = {version = "0.17.1", features = ["stm32f042", "rt"]}
+panic-halt = "~0.2"
+
